@@ -30,7 +30,7 @@ public abstract class TextInput extends UI {
     private int selectionStart = 0, selectionEnd = 0;
     private String input;
     private int historyPos = 0;
-    private List<String> history = new ArrayList<>();
+    private final List<String> history = new ArrayList<>();
     private long lastSelectionChanged = System.currentTimeMillis();
     public final float width;
     public final float height;
@@ -178,7 +178,7 @@ public abstract class TextInput extends UI {
                                 entered(input);
                             }
                         } else {
-                            String input = history.get(historyPos - 1);
+                            String input = history.get(history.size() - historyPos);
                             reset();
                             entered(input);
                         }
@@ -289,6 +289,9 @@ public abstract class TextInput extends UI {
         int to = max(start, end);
         String oldInput = getInput();
         String newInput = oldInput.substring(0, from) + replacement + oldInput.substring(to);
+        if (historyPos != 0 && !oldInput.equals(newInput)) {
+            historyPos = 0;
+        }
         setInput(newInput);
         selectionStart = selectionEnd = from;
         lastSelectionChanged = System.currentTimeMillis();
@@ -306,14 +309,14 @@ public abstract class TextInput extends UI {
     }
 
     public String getInput() {
-        return historyPos == 0 ? input : history.get(historyPos - 1);
+        return historyPos == 0 ? input : history.get(history.size() - historyPos);
     }
 
     public void setInput(String text) {
         if (historyPos == 0) {
             input = text;
         } else {
-            history.set(historyPos - 1, text);
+            history.set(history.size() - historyPos, text);
         }
     }
 

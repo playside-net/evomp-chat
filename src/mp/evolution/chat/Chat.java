@@ -33,7 +33,6 @@ public class Chat extends Script {
     public static AtomicBoolean INPUT_LOCKED = new AtomicBoolean(false);
     public static AtomicLong LAST_CLOSED = new AtomicLong(System.currentTimeMillis());
 
-    private int currentPage = 1;
     private final List<String> lineHistory = new ArrayList<>();
     private final TextInput input = new TextInput(this, "", CONSOLE_WIDTH, INPUT_HEIGHT, FONT, true) {
         @Override
@@ -89,6 +88,7 @@ public class Chat extends Script {
                     if (e.key == KeyCode.ESCAPE && OPEN.get()) {
                         enqueueTask(self -> {
                             OPEN.set(false);
+                            input.reset();
                             LAST_CLOSED.set(System.currentTimeMillis() + 200);
                             lockControls();
                             return true;
@@ -145,6 +145,7 @@ public class Chat extends Script {
         // Draw background
         ui.drawRect(0, 0, CONSOLE_WIDTH, CONSOLE_HEIGHT, BACKGROUND_COLOR);
         int totalPages = Math.max(1, (lineHistory.size() + LINES_PER_PAGE - 1) / LINES_PER_PAGE);
+        int currentPage = 1;
         ui.drawText("Page " + currentPage + "/" + totalPages, 5, CONSOLE_HEIGHT + INPUT_HEIGHT, PAGE_COLOR, FONT, scaleX, scaleY);
 
         input.draw(0, CONSOLE_HEIGHT);
