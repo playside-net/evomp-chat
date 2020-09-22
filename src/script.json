@@ -1,0 +1,6 @@
+{
+  "id": "chat",
+  "name": "Chat",
+  "main-class": "mp.evolution.chat.Chat",
+  "authors": ["Radviger"]
+}
