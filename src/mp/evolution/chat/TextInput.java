@@ -242,18 +242,21 @@ public abstract class TextInput extends UI {
         } else if (event instanceof ScriptEventKeyboardChar) {
             ScriptEventKeyboardChar e = (ScriptEventKeyboardChar) event;
             switch (e.symbol) {
-                case '\u0008': {
+                case "\u0008": {
                     eraseLeft();
                     break;
                 }
-                case '\u007F': {
+                case "\u007F": {
                     eraseRight();
                     break;
                 }
                 default: {
-                    if (!Character.isISOControl(e.symbol)) {
-                        enterChar(e.symbol);
+                    for (int i = 0; i < e.symbol.length(); i++) {
+                        if (Character.isISOControl(e.symbol.charAt(i))) {
+                            return;
+                        }
                     }
+                    enterChar(e.symbol);
                     break;
                 }
             }
@@ -277,10 +280,10 @@ public abstract class TextInput extends UI {
         }
     }
 
-    private void enterChar(char c) {
+    private void enterChar(String c) {
         int start = selectionStart;
         int end = selectionEnd;
-        replaceChars(start, end, String.valueOf(c));
+        replaceChars(start, end, c);
         selectionStart = selectionEnd = min(start, end) + 1;
     }
 
