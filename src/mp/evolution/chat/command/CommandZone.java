@@ -5,7 +5,7 @@ import mp.evolution.chat.command.exception.CommandException;
 import mp.evolution.chat.command.exception.WrongUsageException;
 import mp.evolution.game.entity.ped.Ped;
 import mp.evolution.game.gps.GPS;
-import mp.evolution.game.math.Vector3;
+import mp.evolution.math.Vector3;
 import mp.evolution.script.Script;
 
 public class CommandZone extends Command {

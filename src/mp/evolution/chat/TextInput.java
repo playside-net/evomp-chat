@@ -1,6 +1,6 @@
 package mp.evolution.chat;
 
-import mp.evolution.game.math.RGBA;
+import mp.evolution.math.RGBA;
 import mp.evolution.game.ui.UI;
 import mp.evolution.script.Script;
 import mp.evolution.script.event.ScriptEventKeyboardChar;

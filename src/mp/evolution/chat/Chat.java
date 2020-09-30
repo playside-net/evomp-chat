@@ -5,9 +5,9 @@ import mp.evolution.chat.command.exception.CommandException;
 import mp.evolution.game.controls.Control;
 import mp.evolution.game.controls.ControlGroup;
 import mp.evolution.game.entity.ped.Ped;
-import mp.evolution.game.math.RGBA;
 import mp.evolution.game.ui.UI;
 import mp.evolution.game.ui.UI.Font;
+import mp.evolution.math.RGBA;
 import mp.evolution.script.Script;
 import mp.evolution.script.event.ScriptEvent;
 import mp.evolution.script.event.ScriptEventKeyboardKey;
@@ -67,6 +67,7 @@ public class Chat extends Script {
         registerCommand(new CommandOil(this));
         registerCommand(new CommandStats(this));
         registerCommand(new CommandMusicEvent(this));
+        registerCommand(new CommandProp(this));
     }
 
     @Override
