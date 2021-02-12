@@ -3,6 +3,7 @@ package mp.evolution.chat.command;
 import mp.evolution.chat.command.exception.CommandException;
 import mp.evolution.game.entity.ped.Ped;
 import mp.evolution.game.streaming.Model;
+import mp.evolution.math.Hash;
 import mp.evolution.script.Script;
 
 public abstract class Command {
@@ -46,7 +47,7 @@ public abstract class Command {
         try {
             return Integer.parseInt(arg);
         } catch (NumberFormatException e) {
-            return Script.joaat(arg);
+            return Hash.joaat(arg);
         }
     }
 

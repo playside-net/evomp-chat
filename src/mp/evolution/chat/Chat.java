@@ -68,6 +68,11 @@ public class Chat extends Script {
         registerCommand(new CommandStats(this));
         registerCommand(new CommandMusicEvent(this));
         registerCommand(new CommandProp(this));
+        registerCommand(new CommandSeat(this));
+        registerCommand(new CommandSound(this));
+        registerCommand(new CommandUi3D(this));
+        registerCommand(new CommandInterior(this));
+        registerCommand(new CommandInteriorColor(this));
     }
 
     @Override
@@ -107,6 +112,8 @@ public class Chat extends Script {
                             OPEN.set(true);
                             return true;
                         });
+                    } else if (e.key == KeyCode.F3) {
+                        push("Coord: " + invokeVector3(0x5BFF36D6ED83E0AEL));
                     }
                 } else if (e.key == KeyCode.KEY_T && INPUT_LOCKED.get()) {
                     enqueueTask(self -> {
