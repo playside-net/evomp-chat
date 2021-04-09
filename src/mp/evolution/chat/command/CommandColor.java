@@ -6,9 +6,9 @@ import mp.evolution.game.entity.ped.Ped;
 import mp.evolution.game.entity.vehicle.Vehicle;
 import mp.evolution.script.Script;
 
-public class CommandFuel extends Command {
-    public CommandFuel(Script script) {
-        super(script, "fuel");
+public class CommandColor extends Command {
+    public CommandColor(Script script) {
+        super(script, "col");
     }
 
     @Override
@@ -16,20 +16,13 @@ public class CommandFuel extends Command {
         if (args.length == 1) {
             Vehicle veh = player.getVehicleIn(false);
             if (veh != null) {
-                float fuel = parseFloat(args[0]);
-                veh.setFuel(fuel);
-            } else {
-                throw new CommandException("You're not in a vehicle");
-            }
-        } else if (args.length == 0) {
-            Vehicle veh = player.getVehicleIn(false);
-            if (veh != null) {
-                message("~y~Fuel level is ~w~" + veh.getFuel() + " / " + 65.0);
+                int variant = parseInt(args[0]);
+                veh.setColorCombination(variant);
             } else {
                 throw new CommandException("You're not in a vehicle");
             }
         } else {
-            throw new WrongUsageException(this, "[level]");
+            throw new WrongUsageException(this, "[variant]");
         }
     }
 }

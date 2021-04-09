@@ -21,7 +21,7 @@ public class CommandZone extends Command {
         if (args.length == 0) {
             Vector3 pos = player.getPosition();
             String zone = gps.getZoneName(pos);
-            ((Chat) script).push("~y~Your zone is ~w~" + zone);
+            message("~y~Your zone is ~w~" + zone);
         } else {
             throw new WrongUsageException(this, "");
         }

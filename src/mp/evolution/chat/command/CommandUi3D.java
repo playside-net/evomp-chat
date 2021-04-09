@@ -12,7 +12,7 @@ public class CommandUi3D extends Command {
 
     @Override
     public void execute(Ped player, String[] args) throws CommandException {
-        ((Chat) script).push("~y~UI3D is ~w~" + (script.invokeBoolean(0xD3A10FC7FD8D98CDL) ? "" : "not ") + "available");
-        ((Chat) script).push("~y~Pushed preset CELEBRATION_WINNER: ~w~" + script.invokeBoolean(0xF1CEA8A4198D8E9AL, "CELEBRATION_WINNER"));
+        message("~y~UI3D is ~w~" + (script.invokeBoolean(0xD3A10FC7FD8D98CDL) ? "" : "not ") + "available");
+        message("~y~Pushed preset CELEBRATION_WINNER: ~w~" + script.invokeBoolean(0xF1CEA8A4198D8E9AL, "CELEBRATION_WINNER"));
     }
 }

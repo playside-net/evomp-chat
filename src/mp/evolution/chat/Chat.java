@@ -64,6 +64,8 @@ public class Chat extends Script {
         registerCommand(new CommandRGB(this));
         registerCommand(new CommandModel(this));
         registerCommand(new CommandFuel(this));
+        registerCommand(new CommandPed(this));
+        registerCommand(new CommandControl(this));
         registerCommand(new CommandOil(this));
         registerCommand(new CommandStats(this));
         registerCommand(new CommandMusicEvent(this));
@@ -73,6 +75,11 @@ public class Chat extends Script {
         registerCommand(new CommandUi3D(this));
         registerCommand(new CommandInterior(this));
         registerCommand(new CommandInteriorColor(this));
+        registerCommand(new CommandCam(this));
+        registerCommand(new CommandLivery(this));
+        registerCommand(new CommandRoofLivery(this));
+        registerCommand(new CommandColor(this));
+        registerCommand(new CommandAlarm(this));
     }
 
     @Override

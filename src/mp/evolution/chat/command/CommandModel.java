@@ -18,11 +18,11 @@ public class CommandModel extends Command {
         if (args.length == 1) {
             Model model = new Model(args[0]);
             model.load(script, m -> {
-                ((Chat) script).push("Old ped: " + Ped.local(script).handle());
+                message("Old ped: " + Ped.local(script).handle());
                 Player pl = Player.local(script);
                 pl.setModel(m);
                 Ped p = Ped.local(script);
-                ((Chat) script).push("New ped: " + p.handle());
+                message("New ped: " + p.handle());
                 p.setDefaultComponentVariation();
             });
         } else {

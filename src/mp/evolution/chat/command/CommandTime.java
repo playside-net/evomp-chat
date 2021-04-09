@@ -21,7 +21,7 @@ public class CommandTime extends Command {
             int hour = parseInt(args[0]);
             int minute = parseInt(args[1]);
             clock.setTime(hour, minute, 0);
-            ((Chat) script).push("~y~Set time to ~w~" + hour + ":" + minute);
+            message("~y~Set time to ~w~" + hour + ":" + minute);
         } else {
             throw new WrongUsageException(this, "");
         }

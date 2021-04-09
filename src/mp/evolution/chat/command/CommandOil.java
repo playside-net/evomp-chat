@@ -25,7 +25,7 @@ public class CommandOil extends Command {
         } else if (args.length == 0) {
             Vehicle veh = player.getVehicleIn(false);
             if (veh != null) {
-                ((Chat) script).push("~y~Oil level is ~w~" + veh.getOil());
+                message("~y~Oil level is ~w~" + veh.getOil());
             } else {
                 throw new CommandException("You're not in a vehicle");
             }

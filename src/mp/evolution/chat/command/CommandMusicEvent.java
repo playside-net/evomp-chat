@@ -19,17 +19,17 @@ public class CommandMusicEvent extends Command {
             switch (action) {
                 case "load": {
                     boolean result = script.invokeBoolean(0x1E5185B72EF5158AL, name);
-                    ((Chat) script).push("~w~Preparing sound event ~y~" + name + " ~w~" + result);
+                    message("~w~Preparing sound event ~y~" + name + " ~w~" + result);
                     break;
                 }
                 case "play": {
                     boolean result = script.invokeBoolean(0x706D57B0F50DA710L, name);
-                    ((Chat) script).push("~w~Triggering sound event ~y~" + name + " ~w~" + result);
+                    message("~w~Triggering sound event ~y~" + name + " ~w~" + result);
                     break;
                 }
                 case "stop": {
                     boolean result = script.invokeBoolean(0x5B17A90291133DA5L, name);
-                    ((Chat) script).push("~w~Cancelling sound event ~y~" + name + " ~w~" + result);
+                    message("~w~Cancelling sound event ~y~" + name + " ~w~" + result);
                     break;
                 }
                 default: {

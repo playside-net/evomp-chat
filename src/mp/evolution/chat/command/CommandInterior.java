@@ -18,7 +18,7 @@ public class CommandInterior extends Command {
         if (args.length == 0) {
             Interior i = Interior.fromPos(script, player.getPosition());
             InteriorInfo info = i.getInfo();
-            ((Chat) script).push("~y~Interior #" + i.handle() + ": ~w~" + info.pos + " " + info.hash);
+            message("~y~Interior #" + i.handle() + ": ~w~" + info.pos + " " + info.hash);
         } else {
             throw new WrongUsageException(this, "");
         }

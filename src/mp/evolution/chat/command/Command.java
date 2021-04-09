@@ -1,5 +1,6 @@
 package mp.evolution.chat.command;
 
+import mp.evolution.chat.Chat;
 import mp.evolution.chat.command.exception.CommandException;
 import mp.evolution.game.entity.ped.Ped;
 import mp.evolution.game.streaming.Model;
@@ -13,6 +14,10 @@ public abstract class Command {
     protected Command(Script script, String name) {
         this.script = script;
         this.name = name;
+    }
+
+    protected static boolean parseBoolean(String arg) throws CommandException {
+        return arg.equals("true") || arg.equals("1");
     }
 
     protected static int parseInt(String arg) throws CommandException {
@@ -61,6 +66,10 @@ public abstract class Command {
             throw new CommandException("Model is not in CD image: " + arg);
         }
         return model;
+    }
+
+    protected void message(String text) {
+        ((Chat) script).push(text);
     }
 
     public abstract void execute(Ped player, String[] args) throws CommandException;
