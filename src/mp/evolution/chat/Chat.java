@@ -80,6 +80,7 @@ public class Chat extends Script {
         registerCommand(new CommandRoofLivery(this));
         registerCommand(new CommandColor(this));
         registerCommand(new CommandAlarm(this));
+        registerCommand(new CommandReload(this));
     }
 
     @Override
